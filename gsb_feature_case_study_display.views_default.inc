@@ -241,7 +241,7 @@ function gsb_feature_case_study_display_views_default_views() {
   $view->name = 'search_case_study';
   $view->description = '';
   $view->tag = 'default';
-  $view->base_table = 'apachesolr__solr';
+  $view->base_table = 'apachesolr__acquia_search_server_1';
   $view->human_name = 'Search case study';
   $view->core = 7;
   $view->api_version = '3.0';
@@ -291,18 +291,18 @@ function gsb_feature_case_study_display_views_default_views() {
   $handler->display->display_options['empty']['area']['format'] = 'panopoly_wysiwyg_text';
   /* Field: Apache Solr: label */
   $handler->display->display_options['fields']['label']['id'] = 'label';
-  $handler->display->display_options['fields']['label']['table'] = 'apachesolr__solr';
+  $handler->display->display_options['fields']['label']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['fields']['label']['field'] = 'label';
   $handler->display->display_options['fields']['label']['label'] = '';
   $handler->display->display_options['fields']['label']['element_label_colon'] = FALSE;
   /* Filter criterion: Apache Solr: bundle */
   $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
-  $handler->display->display_options['filters']['bundle']['table'] = 'apachesolr__solr';
+  $handler->display->display_options['filters']['bundle']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
   $handler->display->display_options['filters']['bundle']['value'] = 'case_study';
   /* Filter criterion: Apache Solr: Search */
   $handler->display->display_options['filters']['keyword']['id'] = 'keyword';
-  $handler->display->display_options['filters']['keyword']['table'] = 'apachesolr__solr';
+  $handler->display->display_options['filters']['keyword']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['filters']['keyword']['field'] = 'keyword';
   $handler->display->display_options['filters']['keyword']['exposed'] = TRUE;
   $handler->display->display_options['filters']['keyword']['expose']['operator_id'] = '';
