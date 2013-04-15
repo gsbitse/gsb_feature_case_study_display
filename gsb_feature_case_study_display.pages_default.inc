@@ -87,7 +87,7 @@ function gsb_feature_case_study_display_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'The Faculty';
+  $display->title = 'Case Study';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
