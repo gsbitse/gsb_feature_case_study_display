@@ -7,8 +7,7 @@
 /**
  * Implements hook_views_default_views().
  */
-function gsb_feature_case_study_display_views_default_views()
-{
+function gsb_feature_case_study_display_views_default_views() {
   $export = array();
 
   $view = new view();
@@ -297,6 +296,28 @@ function gsb_feature_case_study_display_views_default_views()
     ),
   );
   $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Tag (field_tag) */
+  $handler->display->display_options['arguments']['field_tag_tid']['id'] = 'field_tag_tid';
+  $handler->display->display_options['arguments']['field_tag_tid']['table'] = 'field_data_field_tag';
+  $handler->display->display_options['arguments']['field_tag_tid']['field'] = 'field_tag_tid';
+  $handler->display->display_options['arguments']['field_tag_tid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_tag_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_tag_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_tag_tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_tag_tid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['field_tag_tid']['validate']['type'] = 'taxonomy_term';
+  $handler->display->display_options['arguments']['field_tag_tid']['validate_options']['vocabularies'] = array(
+    'academic_area' => 'academic_area',
+    'business_insight_topic' => 'business_insight_topic',
+    'company_organization' => 'company_organization',
+    'discipline' => 'discipline',
+    'industry' => 'industry',
+    'region' => 'region',
+    'tag' => 'tag',
+    'target_audience' => 'target_audience',
+  );
+  $handler->display->display_options['arguments']['field_tag_tid']['validate_options']['type'] = 'convert';
+  $handler->display->display_options['arguments']['field_tag_tid']['validate']['fail'] = 'ignore';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -374,9 +395,19 @@ function gsb_feature_case_study_display_views_default_views()
   );
   $handler->display->display_options['filters']['field_academic_area_single_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_academic_area_single_tid']['vocabulary'] = 'academic_area';
+  $handler->display->display_options['argument_input'] = array(
+    'field_tag_tid' => array(
+      'type' => 'panel',
+      'context' => 'entity:field_collection_item.field_cta_action',
+      'context_optional' => 0,
+      'panel' => '1',
+      'fixed' => '',
+      'label' => 'Content: Tag (field_tag)',
+    ),
+  );
   $handler->display->display_options['inherit_panels_path'] = '1';
-
   $export['case_study_filters'] = $view;
+
 
   return $export;
 }
