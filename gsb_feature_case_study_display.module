@@ -5,3 +5,56 @@
  */
 
 include_once 'gsb_feature_case_study_display.features.inc';
+
+/**
+ * Implements hook_apachesolr_index_document_build_node
+ *
+ */
+function gsb_feature_case_study_display_apachesolr_index_document_build_node(ApacheSolrDocument $document, $entity, $env_id)
+{
+  // Index field_date_published as a separate field
+  if ($entity->type == 'case_study') {
+
+    if (!empty($entity->field_date_published)) {
+      $timestamp = strtotime($entity->field_date_published[LANGUAGE_NONE][0]['value']);
+      $document->setMultiValue('im_field_date_published_format_year', date("Y", $timestamp));
+    }
+
+    $field_names_array = array("field_academic_area_single", "field_business_insight_topic", "field_discipline",
+      "field_industry", "field_region", "field_target_audience", "field_company_organization", "field_tag");
+    foreach ($field_names_array as $field_name)
+      if (!empty($entity->$field_name)) {
+        $used_term = array();
+        foreach (reset($entity->$field_name) as $value) {
+          $term = taxonomy_term_load($value['tid']);
+          $intersect = array_intersect($used_term, array($value['tid']));
+          if (empty($intersect))
+            $document->setMultiValue('sm_field_tags_apachesolr', $value['tid'] . '>>>' . $term->name);
+          $used_term[] = $value['tid'];
+        }
+      }
+
+    if (!empty($entity->field_body)) {
+      $document->setMultiValue('sm_field_body_apachesolr', $entity->field_body[LANGUAGE_NONE][0]['value']);
+    }
+
+    if (!empty($entity->field_case_study_number)) {
+      $document->setMultiValue('sm_field_number_apachesolr', $entity->field_case_study_number[LANGUAGE_NONE][0]['value']);
+    }
+
+    if (!empty($entity->field_person_fac_student_other)) {
+      $entity_wrapper = entity_metadata_wrapper("node", $entity->nid);
+
+      foreach ($entity_wrapper->field_person_fac_student_other->value() as $key => $value) {
+        if (!(empty($value->field_first_name) && empty($value->field_last_name))) {
+          $name = $value->field_first_name['und'][0]['value'];
+          $name .= ' ' . $value->field_last_name['und'][0]['value'];
+          $document->setMultiValue('sm_field_authors_apachesolr', $name);
+          if (!empty($value->field_person_fac_student_ref))
+            $document->setMultiValue('sm_field_authors_custom_id_apachesolr', $key . '|' . $value->field_person_fac_student_ref['und'][0]['target_id']);
+        }
+      }
+    }
+
+  }
+}
