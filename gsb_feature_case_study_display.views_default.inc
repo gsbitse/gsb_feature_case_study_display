@@ -130,7 +130,7 @@ function gsb_feature_case_study_display_views_default_views() {
   $handler->display->display_options['filters']['keyword']['field'] = 'keyword';
   $handler->display->display_options['filters']['keyword']['exposed'] = TRUE;
   $handler->display->display_options['filters']['keyword']['expose']['operator_id'] = '';
-  $handler->display->display_options['filters']['keyword']['expose']['label'] = 'Search the Faculty Directory';
+  $handler->display->display_options['filters']['keyword']['expose']['label'] = 'Search for Case Studies';
   $handler->display->display_options['filters']['keyword']['expose']['operator'] = 'keyword_op';
   $handler->display->display_options['filters']['keyword']['expose']['identifier'] = 'keyword';
   $handler->display->display_options['filters']['keyword']['expose']['remember_roles'] = array(
