@@ -258,7 +258,7 @@ function gsb_feature_case_study_display_views_default_views() {
   /* Display: case-study-list */
   $handler = $view->new_display('panel_pane', 'case-study-list', 'case_study_list');
   $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['css_class'] = 'view-faculty-filters';
+  $handler->display->display_options['css_class'] = '';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
