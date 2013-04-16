@@ -15,7 +15,7 @@ function gsb_feature_case_study_display_default_page_manager_pages() {
   $page->task = 'page';
   $page->admin_title = 'Case Study search page';
   $page->admin_description = '';
-  $page->path = 'case-study-search/!keywords';
+  $page->path = 'faculty-research/research/cases/!keywords';
   $page->access = array(
     'plugins' => array(
       0 => array(
