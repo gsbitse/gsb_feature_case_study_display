@@ -26,6 +26,7 @@ function gsb_feature_case_study_display_views_default_views() {
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
   $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['exposed_form']['options']['bef'] = array(
@@ -220,6 +221,7 @@ function gsb_feature_case_study_display_views_default_views() {
     4 => 0,
     5 => 0,
   );
+  $handler->display->display_options['filters']['field_industry_tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['field_industry_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_industry_tid']['vocabulary'] = 'industry';
   /* Filter criterion: Content: Discipline (field_discipline) */
@@ -240,6 +242,7 @@ function gsb_feature_case_study_display_views_default_views() {
     4 => 0,
     5 => 0,
   );
+  $handler->display->display_options['filters']['field_discipline_tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['field_discipline_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_discipline_tid']['vocabulary'] = 'discipline';
   /* Filter criterion: Content: Academic Area (field_academic_area_single) */
@@ -260,6 +263,7 @@ function gsb_feature_case_study_display_views_default_views() {
     4 => 0,
     5 => 0,
   );
+  $handler->display->display_options['filters']['field_academic_area_single_tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['field_academic_area_single_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_academic_area_single_tid']['vocabulary'] = 'academic_area';
   $handler->display->display_options['argument_input'] = array(
