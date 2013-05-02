@@ -15,9 +15,9 @@ function gsb_feature_case_study_display_apachesolr_index_document_build_node(Apa
   // Index field_date_published as a separate field
   if ($entity->type == 'case_study') {
 
-    if (!empty($entity->field_date_published)) {
-      $timestamp = strtotime($entity->field_date_published[LANGUAGE_NONE][0]['value']);
-      $document->setMultiValue('im_field_date_published_format_year', date("Y", $timestamp));
+    if (!empty($entity->field_year)) {
+      $timestamp = strtotime($entity->field_year[LANGUAGE_NONE][0]['value']);
+      $document->setMultiValue('im_field_year_format_year', date("Y", $timestamp));
     }
 
     $field_names_array = array("field_academic_area_single", "field_business_insight_topic", "field_discipline",

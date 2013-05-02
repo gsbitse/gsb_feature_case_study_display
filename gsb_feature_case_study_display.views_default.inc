@@ -619,11 +619,37 @@ function gsb_feature_case_study_display_views_default_views() {
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['im_field_date_published_format_year']['id'] = 'im_field_date_published_format_year';
-  $handler->display->display_options['fields']['im_field_date_published_format_year']['table'] = 'apachesolr__acquia_search_server_1';
-  $handler->display->display_options['fields']['im_field_date_published_format_year']['field'] = 'im_field_date_published_format_year';
-  $handler->display->display_options['fields']['im_field_date_published_format_year']['label'] = 'Date posted';
+  /* Field: Apache Solr: Authors (Other) */
+  $handler->display->display_options['fields']['sm_field_authors_apachesolr']['id'] = 'sm_field_authors_apachesolr';
+  $handler->display->display_options['fields']['sm_field_authors_apachesolr']['table'] = 'apachesolr__acquia_search_server_1';
+  $handler->display->display_options['fields']['sm_field_authors_apachesolr']['field'] = 'sm_field_authors_apachesolr';
+  $handler->display->display_options['fields']['sm_field_authors_apachesolr']['ui_name'] = 'Apache Solr: Authors (Other)';
+  $handler->display->display_options['fields']['sm_field_authors_apachesolr']['label'] = '';
+  $handler->display->display_options['fields']['sm_field_authors_apachesolr']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['sm_field_authors_apachesolr']['element_label_colon'] = FALSE;
+  /* Field: Apache Solr: Authors (reference) path */
+  $handler->display->display_options['fields']['sm_field_authors_ref_path_apachesolr']['id'] = 'sm_field_authors_ref_path_apachesolr';
+  $handler->display->display_options['fields']['sm_field_authors_ref_path_apachesolr']['table'] = 'apachesolr__acquia_search_server_1';
+  $handler->display->display_options['fields']['sm_field_authors_ref_path_apachesolr']['field'] = 'sm_field_authors_ref_path_apachesolr';
+  $handler->display->display_options['fields']['sm_field_authors_ref_path_apachesolr']['ui_name'] = 'Apache Solr: Authors (reference) path';
+  $handler->display->display_options['fields']['sm_field_authors_ref_path_apachesolr']['label'] = '';
+  $handler->display->display_options['fields']['sm_field_authors_ref_path_apachesolr']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['sm_field_authors_ref_path_apachesolr']['element_label_colon'] = FALSE;
+  /* Field: Apache Solr: Authors (reference) */
+  $handler->display->display_options['fields']['sm_field_authors_ref_name_apachesolr']['id'] = 'sm_field_authors_ref_name_apachesolr';
+  $handler->display->display_options['fields']['sm_field_authors_ref_name_apachesolr']['table'] = 'apachesolr__acquia_search_server_1';
+  $handler->display->display_options['fields']['sm_field_authors_ref_name_apachesolr']['field'] = 'sm_field_authors_ref_name_apachesolr';
+  $handler->display->display_options['fields']['sm_field_authors_ref_name_apachesolr']['ui_name'] = 'Apache Solr: Authors (reference)';
+  $handler->display->display_options['fields']['sm_field_authors_ref_name_apachesolr']['label'] = '';
+  $handler->display->display_options['fields']['sm_field_authors_ref_name_apachesolr']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['sm_field_authors_ref_name_apachesolr']['alter']['path'] = '[sm_field_authors_ref_path_apachesolr]';
+  $handler->display->display_options['fields']['sm_field_authors_ref_name_apachesolr']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['sm_field_authors_ref_name_apachesolr']['hide_empty'] = TRUE;
+  /* Field: Apache Solr: im_field_year_format_year */
+  $handler->display->display_options['fields']['im_field_year_format_year']['id'] = 'im_field_year_format_year';
+  $handler->display->display_options['fields']['im_field_year_format_year']['table'] = 'apachesolr__acquia_search_server_1';
+  $handler->display->display_options['fields']['im_field_year_format_year']['field'] = 'im_field_year_format_year';
+  $handler->display->display_options['fields']['im_field_year_format_year']['label'] = 'Published';
   /* Field: Apache Solr: label */
   $handler->display->display_options['fields']['label']['id'] = 'label';
   $handler->display->display_options['fields']['label']['table'] = 'apachesolr__acquia_search_server_1';
@@ -632,25 +658,19 @@ function gsb_feature_case_study_display_views_default_views() {
   $handler->display->display_options['fields']['label']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['label']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['label']['element_label_colon'] = FALSE;
-  /* Field: Broken/missing handler */
+  /* Field: Apache Solr: sm_field_number_apachesolr */
   $handler->display->display_options['fields']['sm_field_number_apachesolr']['id'] = 'sm_field_number_apachesolr';
   $handler->display->display_options['fields']['sm_field_number_apachesolr']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['fields']['sm_field_number_apachesolr']['field'] = 'sm_field_number_apachesolr';
   $handler->display->display_options['fields']['sm_field_number_apachesolr']['label'] = '';
   $handler->display->display_options['fields']['sm_field_number_apachesolr']['element_label_colon'] = FALSE;
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['sm_field_authors_custom_id_apachesolr']['id'] = 'sm_field_authors_custom_id_apachesolr';
-  $handler->display->display_options['fields']['sm_field_authors_custom_id_apachesolr']['table'] = 'apachesolr__acquia_search_server_1';
-  $handler->display->display_options['fields']['sm_field_authors_custom_id_apachesolr']['field'] = 'sm_field_authors_custom_id_apachesolr';
-  $handler->display->display_options['fields']['sm_field_authors_custom_id_apachesolr']['label'] = '';
-  $handler->display->display_options['fields']['sm_field_authors_custom_id_apachesolr']['element_label_colon'] = FALSE;
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['sm_field_authors_apachesolr']['id'] = 'sm_field_authors_apachesolr';
-  $handler->display->display_options['fields']['sm_field_authors_apachesolr']['table'] = 'apachesolr__acquia_search_server_1';
-  $handler->display->display_options['fields']['sm_field_authors_apachesolr']['field'] = 'sm_field_authors_apachesolr';
-  $handler->display->display_options['fields']['sm_field_authors_apachesolr']['label'] = 'Authors';
-  $handler->display->display_options['fields']['sm_field_authors_apachesolr']['hide_empty'] = TRUE;
-  /* Field: Broken/missing handler */
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = 'Authors';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[sm_field_authors_apachesolr]';
+  /* Field: Apache Solr: sm_field_body_apachesolr */
   $handler->display->display_options['fields']['sm_field_body_apachesolr']['id'] = 'sm_field_body_apachesolr';
   $handler->display->display_options['fields']['sm_field_body_apachesolr']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['fields']['sm_field_body_apachesolr']['field'] = 'sm_field_body_apachesolr';
@@ -662,7 +682,7 @@ function gsb_feature_case_study_display_views_default_views() {
   $handler->display->display_options['fields']['sm_field_body_apachesolr']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['sm_field_body_apachesolr']['alter']['html'] = TRUE;
   $handler->display->display_options['fields']['sm_field_body_apachesolr']['element_label_colon'] = FALSE;
-  /* Field: Broken/missing handler */
+  /* Field: Apache Solr: sm_field_tags_apachesolr */
   $handler->display->display_options['fields']['sm_field_tags_apachesolr']['id'] = 'sm_field_tags_apachesolr';
   $handler->display->display_options['fields']['sm_field_tags_apachesolr']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['fields']['sm_field_tags_apachesolr']['field'] = 'sm_field_tags_apachesolr';
