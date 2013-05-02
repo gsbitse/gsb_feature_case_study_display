@@ -46,15 +46,35 @@ function gsb_feature_case_study_display_apachesolr_index_document_build_node(Apa
       $entity_wrapper = entity_metadata_wrapper("node", $entity->nid);
 
       foreach ($entity_wrapper->field_person_fac_student_other->value() as $key => $value) {
-        if (!(empty($value->field_first_name) && empty($value->field_last_name))) {
-          $name = $value->field_first_name['und'][0]['value'];
-          $name .= ' ' . $value->field_last_name['und'][0]['value'];
+        if ($value->field_person_or_other[LANGUAGE_NONE][0]['value'] == 'UseEntityReference' && !empty($value->field_person_fac_student_ref)) {
+          $person_entity = node_load($value->field_person_fac_student_ref[LANGUAGE_NONE][0]['target_id']);
+          $document->setMultiValue('sm_field_authors_ref_name_apachesolr', (rtrim($person_entity->title)));
+          $document->setMultiValue('sm_field_authors_ref_path_apachesolr', ($person_entity->path['source']));
+        }
+        if ($value->field_person_or_other[LANGUAGE_NONE][0]['value'] == 'Other' && !(empty($value->field_first_name) && empty($value->field_last_name))) {
+          $name = $value->field_first_name[LANGUAGE_NONE][0]['value'];
+          $name .= ' ' . $value->field_last_name[LANGUAGE_NONE][0]['value'];
           $document->setMultiValue('sm_field_authors_apachesolr', $name);
-          if (!empty($value->field_person_fac_student_ref))
-            $document->setMultiValue('sm_field_authors_custom_id_apachesolr', $key . '|' . $value->field_person_fac_student_ref['und'][0]['target_id']);
         }
       }
     }
 
   }
+}
+/**
+ * Implements hook_preprocess_views_view_fields
+ */
+function gsb_feature_case_study_display_preprocess_views_view_fields(&$vars) {
+  $view = $vars['view'];
+  $row = $vars['row'];
+  if($view->name == "case_study_search") {
+    if (count($row->sm_field_authors_ref_name_apachesolr)) {
+      foreach($row->sm_field_authors_ref_name_apachesolr as $name_key => $name_value) {
+        $vars['row']->sm_field_authors_ref_name_apachesolr[$name_key] = l($name_value, $vars['row']->sm_field_authors_ref_path_apachesolr[$name_key]);
+      }
+    }
+    $merged_fields = array_merge($vars['row']->sm_field_authors_apachesolr, $vars['row']->sm_field_authors_ref_name_apachesolr);
+    $vars['fields']['nothing']->content = implode(', ', $merged_fields);
+  }
+   //}
 }
