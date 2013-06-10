@@ -19,3 +19,10 @@ features[features_api][] = api:1
 features[page_manager_pages][] = case_study_search_page
 features[views_view][] = case_study_filters
 features[views_view][] = case_study_search
+
+
+; Information added by drush on 2013-06-10
+version = "master-dev"
+project = "gsb_feature_case_study_display"
+datestamp = "1370875809"
+

@@ -272,7 +272,7 @@ function gsb_feature_case_study_display_views_default_views() {
   );
   $handler->display->display_options['arguments']['field_tag_tid']['validate_options']['type'] = 'convert';
   $handler->display->display_options['arguments']['field_tag_tid']['validate']['fail'] = 'ignore';
-  $handler->display->display_options['pane_category']['name'] = 'GSB Content Panes';
+  $handler->display->display_options['pane_category']['name'] = 'Other';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['allow']['use_pager'] = 0;
   $handler->display->display_options['allow']['items_per_page'] = 0;
@@ -537,7 +537,7 @@ function gsb_feature_case_study_display_views_default_views() {
   $handler->display->display_options['filters']['tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['tid']['vocabulary'] = 'tag';
   $handler->display->display_options['filters']['tid']['error_message'] = FALSE;
-  $handler->display->display_options['pane_category']['name'] = 'GSB Content Panes';
+  $handler->display->display_options['pane_category']['name'] = 'Content Panes';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['allow']['use_pager'] = 0;
   $handler->display->display_options['allow']['items_per_page'] = 'items_per_page';
@@ -716,7 +716,7 @@ function gsb_feature_case_study_display_views_default_views() {
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['link_url'] = 'faculty-research/research/cases';
   $handler->display->display_options['exposed_block'] = TRUE;
-  $handler->display->display_options['pane_category']['name'] = 'GSB Content Panes';
+  $handler->display->display_options['pane_category']['name'] = 'Other';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['inherit_panels_path'] = '1';
   $export['case_study_search'] = $view;
